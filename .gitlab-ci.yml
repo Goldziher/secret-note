@@ -1,0 +1,9 @@
+include:
+    - local: '.gitlab-ci/install.yaml'
+    - local: '.gitlab-ci/test.yaml'
+    - local: '.gitlab-ci/build.yaml'
+
+stages:
+    - install
+    - test
+    - build

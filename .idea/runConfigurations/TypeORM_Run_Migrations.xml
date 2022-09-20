@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="TypeORM:Run Migrations" type="js.build_tools.npm">
+    <package-json value="$PROJECT_DIR$/package.json" />
+    <command value="run" />
+    <scripts>
+      <script value="typeorm" />
+    </scripts>
+    <arguments value="migration:run" />
+    <node-interpreter value="project" />
+    <envs>
+      <env name="POSTGRES_CONNECTION_STRING" value="postgresql://secret-note:secret-note@localhost:5432/secret-note" />
+    </envs>
+    <method v="2" />
+  </configuration>
+</component>

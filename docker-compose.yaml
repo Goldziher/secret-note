@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+    backend:
+        depends_on:
+            - db
+        image: local
+        build:
+            dockerfile: Dockerfile
+            context: .
+            target: install
+        environment:
+            DATABASE_URL: postgresql://secret-note:secret-note@db:5432/secret-note
+        volumes:
+            - .:/app:cached
+        ports:
+            - '8000:8000'
+        command: ['npm', 'run', 'start:dev']
+
+    db:
+        image: postgres:latest
+        environment:
+            - POSTGRES_DB=secret-note
+            - POSTGRES_PASSWORD=secret-note
+            - POSTGRES_USER=secret-note
+            - PGDATA=/var/lib/postgresql/data
+        volumes:
+            - postgres:/var/lib/postgresql/data
+        ports:
+            - '5432:5432'
+volumes:
+    postgres:
